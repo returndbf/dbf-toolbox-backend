@@ -26,6 +26,10 @@ app.get('/reqWeather', async (req, res) => {
     })
     res.send(r);
 });
+app.get('/test', async (req, res) => {
+    
+    res.send('test');
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
