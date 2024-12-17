@@ -19,11 +19,3 @@ app.get('/reqWeather', async (req, res) => {
     })
     res.send(r);
 });
-app.get('/test', async (req, res) => {
-    
-    res.send('test');
-});
-app.get('/env', async (req, res) => {
-
-    res.send({env:process.env.TRANSLATE_KEY,other:'other'});
-});
