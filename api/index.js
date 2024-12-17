@@ -25,5 +25,5 @@ app.get('/test', async (req, res) => {
 });
 app.get('/env', async (req, res) => {
 
-    res.send(process.env.TRANSLATE_KEY);
+    res.send({env:process.env.TRANSLATE_KEY,other:'other'});
 });
