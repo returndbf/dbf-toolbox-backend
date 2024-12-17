@@ -23,3 +23,7 @@ app.get('/test', async (req, res) => {
     
     res.send('test');
 });
+app.get('/env', async (req, res) => {
+
+    res.send(process.env.TRANSLATE_KEY);
+});
