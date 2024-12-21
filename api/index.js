@@ -7,17 +7,18 @@ app.get('/reqTranslate', async (req, res) => {
 });
 app.get('/reqWeather', async (req, res) => {
     let weatherData = null
-    const {location} = await request(`https://geoapi.qweather.com/v2/city/lookup`, 'GET', {
+    const locationData = await request(`https://geoapi.qweather.com/v2/city/lookup`, 'GET', {
         key: process.env.WEATHER_KEY,
         ...req.query,
     })
+    const {location} = locationData
     if (location) {
         weatherData = await request(`https://devapi.qweather.com/v7/weather/3d`, 'GET', {
             key: process.env.WEATHER_KEY,
             location:location?.[0]?.id
         })
     }
-    res.send(weatherData);
+    res.send({weatherData,position:locationData});
 });
 // app.get('/reqWeather', async (req, res) => {
 //     const r = await request(`https://devapi.qweather.com/v7/weather/3d`, 'GET', {
